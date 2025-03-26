@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="Login Page" />
+  <meta name="author" content="Your Name" />
+  <title>👤 로그인</title>
+  <link rel="icon" type="image/x-icon" th:href="@{/assets/favicon.ico}" />
+  <link th:href="@{/css/styles.css}" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f7fa;
+    }
+
+    .card {
+      width: 400px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      overflow: hidden;
+      animation: fadeIn 0.8s ease;
+    }
+
+    .card-header {
+      background-color: #6a11cb;
+      color: white;
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    .card-body {
+      padding: 2rem;
+    }
+
+    .form-control:focus {
+      border-color: #6a11cb;
+      box-shadow: 0 0 5px rgba(106, 17, 203, 0.5);
+    }
+
+    .btn-primary {
+      background-color: #6a11cb;
+      border: none;
+    }
+
+    .btn-primary:hover {
+      background-color: #2575fc;
+    }
+
+    .btn-img {
+      max-width: 100%;
+    }
+
+    .custom-checkbox {
+      display: flex;
+      align-items: center;
+    }
+
+    .custom-checkbox label {
+      margin-right: 10px;
+    }
+
+    .kakao-login {
+      max-width: 200px;
+    }
+  </style>
+</head>
+
+<body>
+<div class="card">
+  <div class="card-header">
+    LOGIN PAGE
+  </div>
+
+  <div class="card-body">
+    <th:block th:if="${param.logout != null}">
+      <h3>LogOut</h3>
+    </th:block>
+    <form id="registerForm" action="/member/login" method="post" th:if="${param.logout == null}">
+      <div class="mb-3">
+        <label for="username" class="form-label">아이디</label>
+        <input type="text" name="username" id="username" class="form-control" placeholder="USER ID" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="password" class="form-label">패스워드</label>
+        <input type="password" name="password" id="password" class="form-control" placeholder="PASSWORD" required>
+      </div>
+
+      <div class="mb-3 d-flex justify-content-between">
+        <div class="custom-checkbox">
+          <input class="form-check-input" type="checkbox" id="rememberMe" name="remember-me">
+          <label class="form-check-label" for="rememberMe">자동 로그인</label>
+        </div>
+
+        <a href="/oauth2/authorization/kakao" th:if="${param.logout == null}" class="kakao-login">
+          <img src="/images/kakao_login_medium_narrow.png" alt="Kakao Login" class="btn-img"/>
+        </a>
+      </div>
+
+      <div class="d-grid mt-3">
+        <button type="submit" class="btn btn-primary btn-lg">LOGIN</button>
+      </div>
+    </form>
+  </div>
+</div>
+</body>
+</html>

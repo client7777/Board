@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/basic.html}">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/styles.css" rel="stylesheet" />
+    <style>
+        /* 사이드바 항목 글씨 색상 설정 */
+        .list-group-item {
+            color: #000000; /* 진한 검은색 */
+            font-weight: bold; /* 글씨를 진하게 */
+        }
+
+        /* 호버 효과 (마우스를 올렸을 때 글씨 색상과 배경색 변화) */
+        .list-group-item:hover {
+            color: #ffffff; /* 글씨 색을 흰색으로 */
+            background-color: #007bff; /* 배경색을 파란색으로 */
+        }
+    </style>
+</head>
+<body>
+<div class="d-flex" id="wrapper">
+    <!-- Sidebar-->
+    <div class="border-end bg-white" id="sidebar-wrapper">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item list-group-item-action p-3" href="/board/list">게시글 조회</a>
+            <a class="list-group-item list-group-item-action p-3" href="/board/register">게시글 작성</a>
+            <a class="list-group-item list-group-item-action p-3" href="/member/login">로그인</a>
+            <a class="list-group-item list-group-item-action p-3" href="/member/join">회원가입</a>
+        </div>
+    </div>
+    <!-- Page content wrapper-->
+    <div id="page-content-wrapper">
+    </div>
+</div>
+<!-- Bootstrap core JS-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Core theme JS-->
+<script src="js/scripts.js"></script>
+</body>
+</html>

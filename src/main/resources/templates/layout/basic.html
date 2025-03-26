@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <link rel="icon" type="image/x-icon" th:href="@{/assets/favicon.ico}" />
+
+  <!-- Google Fonts (Poppins) -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css">
+
+  <style>
+    /* 전체 폰트 적용 */
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+
+    /* 네비게이션 바 스타일 */
+    .navbar {
+      background-color: #2C3E50; /* 네이비 배경 */
+      padding: 15px 20px; /* 패딩 추가 */
+    }
+
+    .navbar-brand {
+      color: #F8F9FA !important; /* 흰색 */
+      font-weight: bold;
+      font-size: 1.4rem; /* 브랜드 크기 조정 */
+    }
+
+    .navbar-nav .nav-link {
+      color: #F8F9FA !important; /* 흰색 */
+      font-weight: 500;
+      padding: 10px 15px;
+    }
+
+    /* 네비게이션 호버 효과 */
+    .navbar-nav .nav-link:hover {
+      color: #FFC107 !important; /* 노란색 */
+    }
+
+    /* 반응형 네비게이션 */
+    .navbar-collapse {
+      justify-content: flex-end; /* 네비게이션 메뉴가 오른쪽에 위치 */
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- 네비게이션 바 -->
+<nav class="navbar navbar-expand-lg">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">📌 게시판</a>
+    <div class="navbar-collapse">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/board/list">📜 게시글 조회</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/board/register">✍️ 게시글 작성</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/member/login">👤 로그인</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/member/join">🔑 회원가입</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- 페이지 컨텐츠 -->
+<div class="container mt-4">
+  <div layout:fragment="content"></div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
+<script th:src="@{/js/scripts.js}"></script>
+
+<th:block layout:fragment="script"></th:block>
+
+</body>
+</html>
